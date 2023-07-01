@@ -48,11 +48,27 @@ router.route("/update/:id").put(async (req, res) => {
 
   const update = await Student.findByIdAndUpdate(userId, updateStudent)
     .then(() => {
-      res.status(200).send({ status: "Student updated", user: update });
+      res.status(200).send({ status: "Student updated successfully!", user: update });
     })
     .catch((error) => {
       console.log(error);
-      res.status(500).send({ status: "Error in update student", error: error.message });
+      res
+        .status(500)
+        .send({ status: "Error in update student", error: error.message });
+    });
+});
+
+//DELETE request
+router.route("/delete/:id").delete(async (req, res) => {
+  let userId = req.params.id;
+  await Student.findByIdAndDelete(userId)
+    .then(() => {
+      res.status(200).send({ status: "User deleted successfully!" });
+    })
+    .catch((error) => {
+      res
+        .status(500)
+        .send({ status: "Error in delete student", error: error.message });
     });
 });
 
