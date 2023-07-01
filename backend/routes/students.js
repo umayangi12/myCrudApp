@@ -34,5 +34,26 @@ router.route("/").get((req, res) => {
     });
 });
 
+//PUT request
+router.route("/update/:id").put(async (req, res) => {
+  let userId = req.params.id;
+  //destructuring
+  const { name, age, gender } = req.body;
+
+  const updateStudent = {
+    name,
+    age,
+    gender,
+  };
+
+  const update = await Student.findByIdAndUpdate(userId, updateStudent)
+    .then(() => {
+      res.status(200).send({ status: "Student updated", user: update });
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).send({ status: "Error in update student", error: error.message });
+    });
+});
 
 module.exports = router;
