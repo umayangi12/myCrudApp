@@ -24,7 +24,11 @@ mongoose.connect(URL, {
 const connection = mongoose.connection;
 connection.once("open", () => {
   console.log("MongoDB connected");
-});
+})
+
+const studentRouter = require('./routes/students');
+app.use("/student", studentRouter);
+
 
 //create server connection
 app.listen(PORT, () => {
