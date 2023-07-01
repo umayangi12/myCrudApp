@@ -2,7 +2,7 @@ const router = require("express").Router();
 let Student = require("../models/Student");
 
 //POST request
-router.route("/add").post((req, res) => {
+router.route("/addStudent").post((req, res) => {
   const name = req.body.name;
   const age = Number(req.body.age);
   const gender = req.body.gender;
@@ -34,8 +34,23 @@ router.route("/").get((req, res) => {
     });
 });
 
+//get a specific student
+router.route("/getStudent/:id").get(async (req, res) => {
+  let userId = req.params.id;
+
+  await Student.findById(userId)
+    .then(() => {
+      res
+        .status(200)
+        .send({ status: "User fetched successfully!", user: user });
+    })
+    .catch((error) => {
+      res.status(500).send({ status: "User not found!", error: error.message });
+    });
+});
+
 //PUT request
-router.route("/update/:id").put(async (req, res) => {
+router.route("/updateStudent/:id").put(async (req, res) => {
   let userId = req.params.id;
   //destructuring
   const { name, age, gender } = req.body;
@@ -48,7 +63,9 @@ router.route("/update/:id").put(async (req, res) => {
 
   const update = await Student.findByIdAndUpdate(userId, updateStudent)
     .then(() => {
-      res.status(200).send({ status: "Student updated successfully!", user: update });
+      res
+        .status(200)
+        .send({ status: "Student updated successfully!", user: update });
     })
     .catch((error) => {
       console.log(error);
@@ -59,7 +76,7 @@ router.route("/update/:id").put(async (req, res) => {
 });
 
 //DELETE request
-router.route("/delete/:id").delete(async (req, res) => {
+router.route("/deleteStudet/:id").delete(async (req, res) => {
   let userId = req.params.id;
   await Student.findByIdAndDelete(userId)
     .then(() => {
