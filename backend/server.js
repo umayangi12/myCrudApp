@@ -1,7 +1,7 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const cors = require('cors');
+const express = require("express");
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
@@ -16,18 +16,17 @@ app.use(bodyParser.json());
 const URL = process.env.MONGODB_URL;
 
 mongoose.connect(URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
 
-//create connection
+//create db connection
 const connection = mongoose.connection;
 connection.once("open", () => {
-    console.log("MongoDB connected")
-
+  console.log("MongoDB connected");
 });
 
+//create server connection
 app.listen(PORT, () => {
-    console.log(`App is running on port ${PORT}`)
+  console.log(`App is running on port ${PORT}`);
 });
