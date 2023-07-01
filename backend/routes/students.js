@@ -39,10 +39,10 @@ router.route("/getStudent/:id").get(async (req, res) => {
   let userId = req.params.id;
 
   await Student.findById(userId)
-    .then(() => {
+    .then((student) => {
       res
         .status(200)
-        .send({ status: "User fetched successfully!", user: user });
+        .send({ status: "User fetched successfully!", student });
     })
     .catch((error) => {
       res.status(500).send({ status: "User not found!", error: error.message });
@@ -65,7 +65,7 @@ router.route("/updateStudent/:id").put(async (req, res) => {
     .then(() => {
       res
         .status(200)
-        .send({ status: "Student updated successfully!", user: update });
+        .send({ status: "Student updated successfully!" });
     })
     .catch((error) => {
       console.log(error);
@@ -76,7 +76,7 @@ router.route("/updateStudent/:id").put(async (req, res) => {
 });
 
 //DELETE request
-router.route("/deleteStudet/:id").delete(async (req, res) => {
+router.route("/deleteStudent/:id").delete(async (req, res) => {
   let userId = req.params.id;
   await Student.findByIdAndDelete(userId)
     .then(() => {
