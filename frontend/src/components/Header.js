@@ -23,7 +23,7 @@ function Header() {
             <a className="nav-link active" aria-current="page" href="#">
               Home
             </a>
-            <a className="nav-link" href="#">
+            <a className="nav-link" href="/AddStudent">
               Students
             </a>
             <a className="nav-link" href="#">
