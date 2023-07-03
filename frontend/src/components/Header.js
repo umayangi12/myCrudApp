@@ -1,7 +1,7 @@
 import React from "react";
 import Logo from "../assets/img/logo.png"
 
-function Header() {
+export const Header = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
