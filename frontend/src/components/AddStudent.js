@@ -15,20 +15,21 @@ export const AddStudent = () => {
         gender
     }
 
-    axios.post("/addStudent", newStudent)
-    .then(()=> {
-        alert("Student added successfully")
-    })
-    .catch((error) => {
-        alert(error)
-    })
+    axios
+      .post("/student/addStudent", newStudent)
+      .then(() => {
+        alert("Student added successfully");
+      })
+      .catch((error) => {
+        alert(error);
+      });
   }
 
-  return ( 
+  return (
     <div className="container">
       <form onSubmit={submitData}>
         <div className="form-group">
-          <label for="name">Student name</label>
+          <label>Student name</label>
           <input
             type="text"
             className="form-control"
@@ -40,7 +41,7 @@ export const AddStudent = () => {
           />
         </div>
         <div className="mb-3">
-          <label for="age">Student age</label>
+          <label>Student age</label>
           <input
             type="number"
             className="form-control"
@@ -52,7 +53,7 @@ export const AddStudent = () => {
           />
         </div>
         <div className="mb-3">
-          <label for="gender">Student gender</label>
+          <label>Student gender</label>
           <input
             type="text"
             className="form-control"
@@ -64,7 +65,7 @@ export const AddStudent = () => {
           />
         </div>
 
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" className="btn btn-primary">
           Submit
         </button>
       </form>
