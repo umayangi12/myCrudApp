@@ -10,15 +10,18 @@ export const AddStudent = () => {
     e.preventDefault();
 
     const newStudent = {
-        name,
-        age,
-        gender
-    }
-console.log(newStudent);
+      name,
+      age,
+      gender,
+    };
+    console.log(newStudent);
     axios
       .post("http://localhost:8000/student/addStudent", newStudent)
       .then(() => {
         alert("Student added successfully");
+        setName("");
+        setAge(0);
+        setGender("");
       })
       .catch((error) => {
         alert(error);
@@ -48,7 +51,7 @@ console.log(newStudent);
             id="age"
             placeholder="Enter student's age"
             onChange={(e) => {
-              setAge(e.target.value);
+              setAge(parseInt(e.target.value));
             }}
           />
         </div>
@@ -71,6 +74,6 @@ console.log(newStudent);
       </form>
     </div>
   );
-}
+};
 
 export default AddStudent;
