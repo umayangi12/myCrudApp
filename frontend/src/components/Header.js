@@ -1,5 +1,6 @@
 import React from "react";
 import Logo from "../assets/img/logo.png"
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   return (
@@ -20,18 +21,15 @@ export const Header = () => {
 
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
-            <a className="nav-link active" aria-current="page" href="#">
+            <Link to="/" className="nav-link">
               Home
-            </a>
-            <a className="nav-link" href="/AddStudent">
+            </Link>
+            <Link to="/AddStudent" className="nav-link">
               Students
-            </a>
-            <a className="nav-link" href="#">
-              Teachers
-            </a>
-            <a className="nav-link" href="#">
-              Assignments
-            </a>
+            </Link> 
+            <Link to="#" className="nav-link">
+              Teacher
+            </Link>
           </div>
         </div>
       </div>

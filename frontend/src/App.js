@@ -2,6 +2,7 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AddStudent from "./components/AddStudent";
 import Header from "./components/Header";
+import AllStudents from "./components/AllStudents";
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
         </header>
         <main>
           <Routes>
-            <Route path="/addStudent" element={<AddStudent />} />
+            <Route path="/" element={<AllStudents />} exact />
+            <Route path="/addStudent" element={<AddStudent />} exact />
           </Routes>
         </main>
       </div>
