@@ -14,9 +14,9 @@ export const AddStudent = () => {
         age,
         gender
     }
-
+console.log(newStudent);
     axios
-      .post("/student/addStudent", newStudent)
+      .post("http://localhost:8000/student/addStudent", newStudent)
       .then(() => {
         alert("Student added successfully");
       })
