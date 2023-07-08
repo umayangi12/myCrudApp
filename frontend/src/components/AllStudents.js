@@ -27,7 +27,7 @@ export default function AllStudents() {
         );
         console.log(response);
         if (response.status === 200) {
-          alert("Student deleted successfully!");
+          alert(response.data.status);
           getAllStudents();
         }
       } catch (error) {
