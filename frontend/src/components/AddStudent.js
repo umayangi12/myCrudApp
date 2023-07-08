@@ -16,7 +16,7 @@ export const AddStudent = () => {
     };
     console.log(newStudent);
     axios
-      .post("http://localhost:8000/student/addStudent", newStudent)
+      .post("http://localhost:8070/student/addStudent", newStudent)
       .then(() => {
         alert("Student added successfully");
         setName("");
