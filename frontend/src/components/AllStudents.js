@@ -4,7 +4,6 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 
-
 export default function AllStudents() {
   const [students, setStudents] = useState([]);
 
@@ -53,6 +52,7 @@ export default function AllStudents() {
                       <td>
                         <Link to={`/updateStudent/${item._id}`}>
                           <button className="btn btn-edit">
+                            <i class="bi bi-pencil-square"></i>
                             Edit
                           </button>
                         </Link>
