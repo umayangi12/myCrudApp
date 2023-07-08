@@ -1,5 +1,9 @@
+import './students.css';
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+
+
 
 export default function AllStudents() {
   const [students, setStudents] = useState([]);
@@ -30,28 +34,35 @@ export default function AllStudents() {
           <table className="table table-bordered">
             <thead className="bg-dark text-white">
               <tr>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Gender</th>
-                <th>Action</th>
+                <th style={{ textAlign: "center" }}>Number</th>
+                <th style={{ textAlign: "center" }}>Name</th>
+                <th style={{ textAlign: "center" }}>Age</th>
+                <th style={{ textAlign: "center" }}>Gender</th>
+                <th style={{ textAlign: "center" }}>Action</th>
               </tr>
             </thead>
             <tbody>
-              <h1>abcddd</h1>
               {students &&
-                students.map((item) => {
-  
-                  <tr>
-                    <h1>abcddd</h1>
-                    <td>{item.name}</td>
-                    <td>{item.age}</td>
-                    <td>{item.gender}</td>
-                    <td>
-                      <a className="btn btn-success">Edit</a>
-                      <a className="btn btn-danger">Delete</a>
-                      <a className="btn btn-primary">Details</a>
-                    </td>
-                  </tr>;
+                students.map((item, index) => {
+                  return (
+                    <tr key={index}>
+                      <th scope="row">{index + 1}</th>
+                      <td>{item.name}</td>
+                      <td>{item.age}</td>
+                      <td>{item.gender}</td>
+                      <td>
+                        <Link to={`/updateStudent/${item._id}`}>
+                          <button className="btn btn-edit">
+                            Edit
+                          </button>
+                        </Link>
+                        <button className="btn btn-delete">Delete</button>
+                        <Link to={`/getStudent/${item._id}`}>
+                          <button className="btn btn-view">View</button>
+                        </Link>
+                      </td>
+                    </tr>
+                  );
                 })}
             </tbody>
           </table>
