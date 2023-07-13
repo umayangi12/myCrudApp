@@ -64,7 +64,10 @@ const StudentItem = (
         <div className="row">
           <div className="col-md-10 m-auto">
             <br /> <br />
-            <Link to="/" className="btn btn-outline-warning float-left">
+            <Link
+              to="/getAllStudents"
+              className="btn btn-outline-warning float-left"
+            >
               Show All Student List
             </Link>
           </div>

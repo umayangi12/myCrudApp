@@ -17,7 +17,7 @@ function App() {
         <main>
           <HomePage />
           <Routes>
-            <Route path="/" element={<AllStudents />} exact />
+            <Route path="/getAllStudents" element={<AllStudents />} exact />
             <Route path="/addStudent" element={<AddStudent />} exact />
             <Route path="/updateStudent/:id" element={<EditStudent />} exact />
             <Route path="/getStudent/:id" element={<ViewStudent />} exact />

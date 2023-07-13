@@ -24,7 +24,7 @@ router.route("/addStudent").post((req, res) => {
 });
 
 //GET request
-router.route("/").get((req, res) => {
+router.route("/getAllStudents").get((req, res) => {
   Student.find()
     .then((allStudents) => {
       res.json(allStudents);

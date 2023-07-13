@@ -12,7 +12,9 @@ export default function AllStudents() {
 
   const getAllStudents = async () => {
     try {
-      const response = await axios.get("http://localhost:8070/student/");
+      const response = await axios.get(
+        "http://localhost:8070/student/getAllStudents"
+      );
       setStudents(response.data);
     } catch (error) {
       console.log(error.message);
@@ -38,10 +40,9 @@ export default function AllStudents() {
 
   return (
     <div className="container">
+      <h1 className="display-4 text-center">All Students</h1>
       <div className="card">
-        <div className="card-title">
-          <h1>All Students</h1>
-        </div>
+        <div className="card-title"></div>
         <div className="card-body">
           <table className="table table-bordered">
             <thead className="bg-dark text-white">
@@ -84,6 +85,9 @@ export default function AllStudents() {
                 })}
             </tbody>
           </table>
+          <Link to={"/addStudent"}>
+            <button className="btn btn-addStudent">Add Student</button>
+          </Link>
         </div>
       </div>
     </div>

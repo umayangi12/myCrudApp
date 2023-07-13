@@ -24,9 +24,9 @@ export const Header = () => {
             <Link to="/" className="nav-link">
               Home
             </Link>
-            <Link to="/AddStudent" className="nav-link">
+            <Link to="/getAllStudents" className="nav-link">
               Students
-            </Link> 
+            </Link>
             <Link to="#" className="nav-link">
               Teacher
             </Link>

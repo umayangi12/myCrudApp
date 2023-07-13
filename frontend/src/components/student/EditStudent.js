@@ -60,6 +60,7 @@ export const EditStudent = () => {
 
   return (
     <div className="container">
+      <h1 className="display-4 text-center">Edit Students</h1>
       <form onSubmit={onSubmit}>
         <div className="form-group">
           <label>Student name</label>
