@@ -13,22 +13,24 @@ export const EditStudent = () => {
     const navigate = useNavigate();
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:8070/student/getStudent/${id}`)
-      .then((res) => {
-        console.log(res)
-        console.log(res.data)
-        setStudent({
-          name: res.data.student.name,
-          age: res.data.student.age,
-          gender: res.data.student.gender,
-        });
-      })
-      .catch((err) => {
-        console.log("Error from UpdateBookInfo");
-        console.log(err);
-      });
+   getSingleStudent();
   }, [id]);
+
+  const getSingleStudent = () => {
+ axios
+   .get(`http://localhost:8070/student/getStudent/${id}`)
+   .then((res) => {
+     setStudent({
+       name: res.data.student.name,
+       age: res.data.student.age,
+       gender: res.data.student.gender,
+     });
+   })
+   .catch((err) => {
+     console.log("Error from UpdateBookInfo");
+     console.log(err);
+   });
+  }
 
   const onChange = (e) => {
     setStudent({ ...student, [e.target.name]: e.target.value });
