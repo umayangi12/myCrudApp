@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const EditStudent = () => {
   const [student, setStudent] = useState({
@@ -11,6 +13,19 @@ export const EditStudent = () => {
 
   const { id } = useParams();
   const navigate = useNavigate();
+
+  const notifyStudentUpdate = () => {
+    toast.success("Student Updated Successfully!", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+  };
 
   useEffect(() => {
     getSingleStudent();
@@ -27,8 +42,8 @@ export const EditStudent = () => {
         });
       })
       .catch((err) => {
-        console.log("Error from UpdateBookInfo");
         console.log(err);
+       
       });
   };
 
@@ -49,8 +64,9 @@ export const EditStudent = () => {
       .put(`http://localhost:8070/student/updateStudent/${id}`, data)
       .then((res) => {
         console.log(res);
-        alert("Student updated sucessfully!");
-        navigate("/");
+         setTimeout(() => {
+           navigate("/getAllStudents"); // Navigate after 3 seconds
+         }, 3000);
       })
       .catch((err) => {
         alert("Error in update student ");
@@ -96,9 +112,14 @@ export const EditStudent = () => {
           />
         </div>
 
-        <button type="submit" className="btn btn-primary">
+        <button
+          type="submit"
+          className="btn btn-primary"
+          onClick={notifyStudentUpdate}
+        >
           Submit
         </button>
+        <ToastContainer />
       </form>
     </div>
   );

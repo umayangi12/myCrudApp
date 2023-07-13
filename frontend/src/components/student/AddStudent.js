@@ -1,10 +1,25 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const AddStudent = () => {
   const [name, setName] = useState("");
   const [age, setAge] = useState(0);
   const [gender, setGender] = useState("");
+
+  const notifyStudentAdd = () => {
+    toast.success("Student Added Successfully!", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+  };
 
   function submitData(e) {
     e.preventDefault();
@@ -18,7 +33,7 @@ export const AddStudent = () => {
     axios
       .post("http://localhost:8070/student/addStudent", newStudent)
       .then(() => {
-        alert("Student added successfully");
+        // alert("Student added successfully");
         setName("");
         setAge(0);
         setGender("");
@@ -69,9 +84,14 @@ export const AddStudent = () => {
           />
         </div>
 
-        <button type="submit" className="btn btn-primary">
+        <button
+          type="submit"
+          className="btn btn-primary"
+          onClick={notifyStudentAdd}
+        >
           Submit
         </button>
+        <ToastContainer />
       </form>
     </div>
   );
