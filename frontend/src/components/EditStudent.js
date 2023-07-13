@@ -1,100 +1,96 @@
-import React, { useEffect, useState, setState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
 export const EditStudent = () => {
-//   const [name, setName] = useState("");
-//   const [age, setAge] = useState(0);
-//   const [gender, setGender] = useState("");
-
-  const [updateStudent, setUpdateStudent] = useState({
-    _id: null,
+  const [student, setStudent] = useState({
     name: "",
     age: 0,
     gender: "",
   });
 
-  function submitData(e) {
-    e.preventDefault();
+  const { id } = useParams();
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8070/student/getStudent/${id}`)
+      .then((res) => {
+        console.log(res)
+        console.log(res.data)
+        setStudent({
+          name: res.data.student.name,
+          age: res.data.student.age,
+          gender: res.data.student.gender,
+        });
+      })
+      .catch((err) => {
+        console.log("Error from UpdateBookInfo");
+        console.log(err);
+      });
+  }, [id]);
 
-    // const newStudent = {
-    //   name,
-    //   age,
-    //   gender,
-    // };
-    // console.log(newStudent);
-    // axios
-    //   .post("http://localhost:8070/student/addStudent", newStudent)
-    //   .then(() => {
-    //     alert("Student added successfully");
-    //     setName("");
-    //     setAge(0);
-    //     setGender("");
-    //   })
-    //   .catch((error) => {
-    //     alert(error);
-    //   });
-  }
-
-  const handleUpdateFieldChange = (e) => {
-    const { value, name } = e.target;
-
-    setUpdateStudent({
-      ...updateStudent,
-      [name]: value,
-    });
+  const onChange = (e) => {
+    setStudent({ ...student, [e.target.name]: e.target.value });
   };
 
-  const buttonUpdate = (_id) => {
-    //get current values
-    console.log(_id)
+  const onSubmit = (e) => {
+    e.preventDefault();
 
+    const data = {
+      name: student.name,
+      agw: student.age,
+      gender: student.gender,
+    };
 
-    //set state on uodate form
-  }
+    axios
+      .put(`http://localhost:8070/student/updateStudent/${id}`, data)
+      .then((res) => {
+        console.log(res);
+        alert("Student updated sucessfully!")
+      })
+      .catch((err) => {
+        alert("Error in update student ")
+        console.log(err);
+      });
+  };
 
   return (
     <div className="container">
-      <form onSubmit={submitData}>
+      <form onSubmit={onSubmit}>
         <div className="form-group">
           <label>Student name</label>
           <input
-            value={updateStudent.name}
+            value={student.name}
             type="text"
             className="form-control"
-            id="name"
+            name="name"
             placeholder="Enter student's name"
-            onChange={handleUpdateFieldChange}
+            onChange={onChange}
           />
         </div>
         <div className="mb-3">
           <label>Student age</label>
           <input
-            value={updateStudent.age}
+            value={student.age}
             type="number"
             className="form-control"
-            id="age"
+            name="age"
             placeholder="Enter student's age"
-            onChange={handleUpdateFieldChange}
+            onChange={onChange}
           />
         </div>
         <div className="mb-3">
           <label>Student gender</label>
           <input
-            value={updateStudent.gender}
+            value={student.gender}
             type="text"
             className="form-control"
-            id="gender"
+            name="gender"
             placeholder="Enter student's gender"
-            onChange={handleUpdateFieldChange}
+            onChange={onChange}
           />
         </div>
 
-        <button
-          onClick={() => buttonUpdate}
-          type="submit"
-          className="btn btn-primary"
-        >
+        <button type="submit" className="btn btn-primary">
           Submit
         </button>
       </form>
