@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export const EditStudent = () => {
   const [student, setStudent] = useState({
@@ -10,6 +10,8 @@ export const EditStudent = () => {
   });
 
   const { id } = useParams();
+    const navigate = useNavigate();
+
   useEffect(() => {
     axios
       .get(`http://localhost:8070/student/getStudent/${id}`)
@@ -37,7 +39,7 @@ export const EditStudent = () => {
 
     const data = {
       name: student.name,
-      agw: student.age,
+      age: student.age,
       gender: student.gender,
     };
 
@@ -46,6 +48,7 @@ export const EditStudent = () => {
       .then((res) => {
         console.log(res);
         alert("Student updated sucessfully!")
+        navigate('/')
       })
       .catch((err) => {
         alert("Error in update student ")
