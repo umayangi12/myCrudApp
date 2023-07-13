@@ -40,9 +40,7 @@ router.route("/getStudent/:id").get(async (req, res) => {
 
   await Student.findById(userId)
     .then((student) => {
-      res
-        .status(200)
-        .send({ status: "User fetched successfully!", student });
+      res.status(200).send({ status: "User fetched successfully!", student });
     })
     .catch((error) => {
       res.status(500).send({ status: "User not found!", error: error.message });
@@ -63,9 +61,7 @@ router.route("/updateStudent/:id").put(async (req, res) => {
 
   const update = await Student.findByIdAndUpdate(userId, updateStudent)
     .then(() => {
-      res
-        .status(200)
-        .send({ status: "Student updated successfully!" });
+      res.status(200).send({ status: "Student updated successfully!" });
     })
     .catch((error) => {
       console.log(error);

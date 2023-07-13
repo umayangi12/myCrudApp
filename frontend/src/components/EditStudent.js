@@ -10,27 +10,27 @@ export const EditStudent = () => {
   });
 
   const { id } = useParams();
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
-   getSingleStudent();
+    getSingleStudent();
   }, [id]);
 
   const getSingleStudent = () => {
- axios
-   .get(`http://localhost:8070/student/getStudent/${id}`)
-   .then((res) => {
-     setStudent({
-       name: res.data.student.name,
-       age: res.data.student.age,
-       gender: res.data.student.gender,
-     });
-   })
-   .catch((err) => {
-     console.log("Error from UpdateBookInfo");
-     console.log(err);
-   });
-  }
+    axios
+      .get(`http://localhost:8070/student/getStudent/${id}`)
+      .then((res) => {
+        setStudent({
+          name: res.data.student.name,
+          age: res.data.student.age,
+          gender: res.data.student.gender,
+        });
+      })
+      .catch((err) => {
+        console.log("Error from UpdateBookInfo");
+        console.log(err);
+      });
+  };
 
   const onChange = (e) => {
     setStudent({ ...student, [e.target.name]: e.target.value });
@@ -49,11 +49,11 @@ export const EditStudent = () => {
       .put(`http://localhost:8070/student/updateStudent/${id}`, data)
       .then((res) => {
         console.log(res);
-        alert("Student updated sucessfully!")
-        navigate('/')
+        alert("Student updated sucessfully!");
+        navigate("/");
       })
       .catch((err) => {
-        alert("Error in update student ")
+        alert("Error in update student ");
         console.log(err);
       });
   };
