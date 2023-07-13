@@ -1,9 +1,11 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import AddStudent from "./components/AddStudent";
 import Header from "./components/Header";
-import AllStudents from "./components/AllStudents";
-import EditStudent  from "./components/EditStudent";
+import AddStudent from "./components/student/AddStudent";
+import EditStudent from "./components/student/EditStudent";
+import AllStudents from "./components/student/AllStudents";
+import ViewStudent from "./components/student/ViewStudent";
+import { HomePage } from "./components/HomePage";
 
 function App() {
   return (
@@ -13,10 +15,12 @@ function App() {
           <Header />
         </header>
         <main>
+          <HomePage />
           <Routes>
             <Route path="/" element={<AllStudents />} exact />
             <Route path="/addStudent" element={<AddStudent />} exact />
-            <Route path="/updateStudent/:id" element={<EditStudent/>} exact />
+            <Route path="/updateStudent/:id" element={<EditStudent />} exact />
+            <Route path="/getStudent/:id" element={<ViewStudent />} exact />
           </Routes>
         </main>
       </div>
