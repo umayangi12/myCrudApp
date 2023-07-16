@@ -46,6 +46,7 @@ export const AddStudent = () => {
   return (
     <div className="container">
       <h1 className="display-4 text-center">Add Students</h1>
+      <hr />
       <form onSubmit={submitData}>
         <div className="form-group">
           <label>Student name</label>

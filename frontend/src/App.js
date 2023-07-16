@@ -5,7 +5,7 @@ import AddStudent from "./components/student/AddStudent";
 import EditStudent from "./components/student/EditStudent";
 import AllStudents from "./components/student/AllStudents";
 import ViewStudent from "./components/student/ViewStudent";
-import { HomePage } from "./components/HomePage";
+import Home from "./components/home/Home";
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
           <Header />
         </header>
         <main>
-          <HomePage />
+         <Home/>
           <Routes>
             <Route path="/getAllStudents" element={<AllStudents />} exact />
             <Route path="/addStudent" element={<AddStudent />} exact />

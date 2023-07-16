@@ -41,6 +41,8 @@ export default function AllStudents() {
   return (
     <div className="container">
       <h1 className="display-4 text-center">All Students</h1>
+      <h4 className="display-8 text-center">Student Info</h4>
+      <hr />
       <div className="card">
         <div className="card-title"></div>
         <div className="card-body">
