@@ -6,6 +6,7 @@ import EditStudent from "./components/student/EditStudent";
 import AllStudents from "./components/student/AllStudents";
 import ViewStudent from "./components/student/ViewStudent";
 import Home from "./components/home/Home";
+import Popular from "./components/popular/Popular";
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
           <Header />
         </header>
         <main>
-         <Home/>
+          <Home />
+          <Popular />
           <Routes>
             <Route path="/getAllStudents" element={<AllStudents />} exact />
             <Route path="/addStudent" element={<AddStudent />} exact />
