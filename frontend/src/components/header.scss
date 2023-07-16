@@ -112,5 +112,15 @@
             }
 
         }
+        .toggleNavBar{
+            .icon{
+                font-size: 25px;
+                color: var(--whiteColor);
+                &:hover{
+                    color: var(--PrimaryColor);
+                }
+
+            }
+        }
     }
 }

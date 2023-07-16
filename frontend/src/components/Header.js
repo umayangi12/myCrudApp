@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { SiYourtraveldottv } from "react-icons/si";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { TbGridDots } from "react-icons/tb";
+import { CgBee } from "react-icons/cg";
 import "./header.scss";
 
 const Header = () => {
@@ -24,8 +24,8 @@ const Header = () => {
         <div className="logoDiv">
           <a href="#" className="logo">
             <h1 className="flex">
-              <SiYourtraveldottv className="icon" />
-              EduLanka
+              <CgBee className="icon" />
+              TravelBee
             </h1>
           </a>
         </div>
