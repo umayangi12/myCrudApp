@@ -1,0 +1,63 @@
+:root {
+  --PrimaryColor: hsl(26, 93%, 50%);
+  --HoverColor: hsl(26, 90%, 42%);
+  --blackColor: hsl(26, 0%, 18%);
+  --whiteColor: hsl(26, 0%, 100%);
+  --textColor: hsl(240, 1%, 48%);
+  --whiteColorDeam: hsl(0, 0%, 93%);
+  --greyBg: hsl(0, 0%, 96%);
+  --greyText: hsl(0, 2%, 75%);
+  --inputColor: hsl(330, 12%, 97%);
+  --boxShadow: 0 2px 8px 2px rgba(178, 178, 178, 0.189);
+}
+
+.offer {
+  .secContainer {
+    .mainContent {
+      gap: 1rem;
+
+      .singleOffer {
+        border-radius: 1rem;
+        overflow: hidden;
+        padding: 0.5rem;
+        --box-shadow: 0 2px 8px 2px rgba(178, 178, 178, 0.189);
+
+        .icon{
+            font-size: 20px;
+            color: var(--textColor);
+        }
+        small{
+            font-weight: 500;
+            color: var(--textColor);
+        }
+        .destImage{
+          position: relative;
+          height: 200px;
+          width: 100%;
+          border-radius: 1rem;
+          overflow: hidden;
+
+          img{
+            height: 100%;
+          }
+
+          .discount{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            background: var(--PrimaryColor);
+            color: var(--whiteColor);
+            border-radius: 3rem;
+            font-size: 10px;
+            font-weight: 500;
+
+          }
+        }
+        .offerBody{
+          
+        }
+      }
+    }
+  }
+}

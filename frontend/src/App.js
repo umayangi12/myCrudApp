@@ -7,6 +7,7 @@ import AllStudents from "./components/student/AllStudents";
 import ViewStudent from "./components/student/ViewStudent";
 import Home from "./components/home/Home";
 import Popular from "./components/popular/Popular";
+import Offer from "./components/offers/Offer";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <main>
           <Home />
           <Popular />
+          <Offer/>
           <Routes>
             <Route path="/getAllStudents" element={<AllStudents />} exact />
             <Route path="/addStudent" element={<AddStudent />} exact />
