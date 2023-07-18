@@ -9,6 +9,8 @@ import Home from "./components/home/Home";
 import Popular from "./components/popular/Popular";
 import Offer from "./components/offers/Offer";
 import About from "./components/about/About";
+import Footer from "./components/footer/Footer";
+import Blog from "./components/blog/Blog";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
           <Popular />
           <Offer/>
           <About/>
+          <Blog/>
+          <Footer/>
           <Routes>
             <Route path="/getAllStudents" element={<AllStudents />} exact />
             <Route path="/addStudent" element={<AddStudent />} exact />
