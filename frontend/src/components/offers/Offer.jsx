@@ -1,19 +1,19 @@
 import React from "react";
-import './offer.scss';
-import './offer.css';
-import {MdKingBed} from 'react-icons/md'
+import "./offer.scss";
+import "./offer.css";
+import { MdKingBed } from "react-icons/md";
 import { GiBathtub } from "react-icons/gi";
 import { AiOutlineWifi } from "react-icons/ai";
 import { MdAirportShuttle } from "react-icons/md";
 import { MdLocationPin } from "react-icons/md";
 import { BsArrowRightShort } from "react-icons/bs";
 
-import hotel1 from '../../assets/img/hotel1.jpg';
-import hotel2 from '../../assets/img/hotel2.jpg';
-import hotel3 from '../../assets/img/hotel3.jpg';
-import hotel4 from '../../assets/img/hotel4.jpg';
-import hotel5 from '../../assets/img/hotel5.jpg';
-import hotel6 from '../../assets/img/hotel6.jpg';
+import hotel1 from "../../assets/img/hotel1.jpg";
+import hotel2 from "../../assets/img/hotel2.jpg";
+import hotel3 from "../../assets/img/hotel3.jpg";
+import hotel4 from "../../assets/img/hotel4.jpg";
+import hotel5 from "../../assets/img/hotel5.jpg";
+import hotel6 from "../../assets/img/hotel6.jpg";
 
 const offer = [
   {

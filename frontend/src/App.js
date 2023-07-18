@@ -8,6 +8,7 @@ import ViewStudent from "./components/student/ViewStudent";
 import Home from "./components/home/Home";
 import Popular from "./components/popular/Popular";
 import Offer from "./components/offers/Offer";
+import About from "./components/about/About";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Home />
           <Popular />
           <Offer/>
+          <About/>
           <Routes>
             <Route path="/getAllStudents" element={<AllStudents />} exact />
             <Route path="/addStudent" element={<AddStudent />} exact />
