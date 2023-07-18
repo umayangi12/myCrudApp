@@ -173,7 +173,32 @@
 }
 
 @media screen and (min-width: 480px) {
- .popular{
-  padding-top: 10rem;
- }
+  .popular {
+    padding-top: 10rem;
+  }
+}
+@media screen and (min-width: 556px) {
+  .popular {
+    .secContainer {
+      .secHeader {
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        .textDiv {
+          text-align: start;
+          max-width: 70%;
+        }
+        .iconsDiv {
+          justify-content: flex-end;
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 720px) {
+  .popular {
+     
+  }
+
 }

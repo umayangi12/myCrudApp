@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import './blog.scss'
 import { BsArrowRightShort } from "react-icons/bs";
 import blog1 from "../../assets/img/blog1.jpg";
 import blog2 from "../../assets/img/blog2.jpeg";
 import blog3 from "../../assets/img/blog3.jpg";
 import blog4 from "../../assets/img/blog4.jpeg";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const post = [
   {
@@ -35,26 +37,46 @@ const post = [
 ];
 
 const Blog = () => {
+    useEffect(() => {
+      Aos.init({ duration: 2000 });
+    }, []);
   return (
     <section className="blog container section">
       <div className="secContainer">
         <div className="secIntro">
-          <h2 className="secTitle">Our Blogs?</h2>
-          <p>An insight to the increadible expeirence in the world!</p>
+          <h2 data-aos="fade-up" data-aos-duration="2000" className="secTitle">
+            Our Blogs?
+          </h2>
+          <p data-aos="fade-up" data-aos-duration="2500">
+            An insight to the increadible expeirence in the world!
+          </p>
         </div>
 
         <div className="mainContainer grid">
           {post.map(({ id, postImage, title, desc }) => {
             return (
-              <div className="singlePost grid">
+              <div
+                data-aos="fade-up"
+                data-aos-duration="2000"
+                className="singlePost grid"
+              >
                 <div className="imgDiv">
                   <img src={postImage} />
                 </div>
                 <div className="postDetails">
-                  <h3>{title} </h3>
-                  <p>{desc}</p>
+                  <h3 data-aos="fade-up" data-aos-duration="3000">
+                    {title}{" "}
+                  </h3>
+                  <p data-aos="fade-up" data-aos-duration="4000">
+                    {desc}
+                  </p>
                 </div>
-                <a href="#" className="flex">
+                <a
+                  data-aos="fade-up"
+                  data-aos-duration="4500"
+                  href="#"
+                  className="flex"
+                >
                   Read More
                   <BsArrowRightShort className="icon" />
                 </a>
