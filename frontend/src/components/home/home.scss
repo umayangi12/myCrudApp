@@ -12,8 +12,7 @@
 
 .home {
   height: 80vh;
-  background: linear-gradient(rgba(33, 33, 33, 0.522), rgba(33, 33, 33, 0.522)),
-    url("../../assets/img/homebg.jpg");
+  background: linear-gradient(rgba(33, 33, 33, 0.522), rgba(33, 33, 33, 0.522));
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -23,91 +22,111 @@
   margin: auto;
   position: relative;
 
-  .secContainer {
-    .homeText {
-      text-align: center;
+  .video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0; /* Lower z-index to ensure video is behind homeText */
+    .video-bg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    }
 
-      .title {
-        color: var(--whiteColor);
-        font-size: 2rem;
-        font-weight: 700;
-        line-height: 2.5rem;
-      }
-      .subTitle {
-        color: var(--whiteColor);
-        opacity: 0.9;
-        font-size: 13px;
-        font-weight: 300;
-        padding: 1rem 0;
-        max-width: 70%;
+    .secContainer {
+      .homeText {
+        position: absolute;
+        top: 50%; /* Adjust this value to vertically center the content */
+        left: 50%; /* Adjust this value to horizontally center the content */
+        transform: translate(-50%, -50%);
         text-align: center;
-        margin: auto;
-      }
-
-      .btn {
-        padding: 0.6rem 1.5rem;
-      }
-    }
-    .homeCard {
-      width: 80%;
-      border-radius: 1rem;
-      background: transparent;
-      padding: 2rem;
-      background: var(--whiteColor);
-      position: absolute;
-      gap: 1rem;
-      justify-content: center;
-      bottom: -35%;
-      transform: translate(-50%);
-      left: 50%;
-      box-shadow: 0 2px 8px 4px (rgba(178, 178, 178, 0.45));
-
-      .locationDiv .distDiv .priceDiv {
-        width: 100%;
-
-        label {
-          display: block;
-          color: var(--textColor);
-          font-weight: 13px;
-          padding-bottom: 0.4rem;
+        z-index: 1;
+        .title {
+          color: var(--whiteColor);
+          font-size: 2rem;
+          font-weight: 700;
+          line-height: 2.5rem;
         }
-        input {
-          width: 100%;
-          background: var(--inputColor);
-          border-radius: 10px;
-          border: none;
-          padding: 10px;
+        .subTitle {
+          color: var(--whiteColor);
+          opacity: 0.9;
           font-size: 13px;
-          font-weight: 500;
+          font-weight: 300;
+          padding: 1rem 0;
+          max-width: 70%;
+          text-align: center;
+          margin: auto;
+        }
 
-          &::placeholder {
-            font-size: 13px;
-            opacity: 0.5;
-            font-weight: 400;
-          }
-          &:focus{
-            outline: none;
-          }
+        .btn {
+          padding: 0.6rem 1.5rem;
         }
       }
-      .btn{
-        width: 100%;
-        padding: .6rem 1.5rem;
-        color: var(--whiteColor);
-        font-weight: 600;
+      .homeCard {
+        width: 80%;
+        border-radius: 1rem;
+        background: transparent;
+        padding: 2rem;
+        background: var(--whiteColor);
+        position: absolute;
+        gap: 1rem;
+        justify-content: center;
+        bottom: -35%;
+        transform: translate(-50%);
+        left: 50%;
+        box-shadow: 0 2px 8px 4px (rgba(178, 178, 178, 0.45));
+
+        .locationDiv .distDiv .priceDiv {
+          width: 100%;
+
+          label {
+            display: block;
+            color: var(--textColor);
+            font-weight: 13px;
+            padding-bottom: 0.4rem;
+          }
+          input {
+            width: 100%;
+            background: var(--inputColor);
+            border-radius: 10px;
+            border: none;
+            padding: 10px;
+            font-size: 13px;
+            font-weight: 500;
+
+            &::placeholder {
+              font-size: 13px;
+              opacity: 0.5;
+              font-weight: 400;
+            }
+            &:focus {
+              outline: none;
+            }
+          }
+        }
+        .btn {
+          width: 100%;
+          padding: 0.6rem 1.5rem;
+          color: var(--whiteColor);
+          font-weight: 600;
+        }
       }
     }
-  }
+  
 }
 
 @media screen and (min-width: 480px) {
-  .home{
-    .secContainer{
-      .homeCard{
+  .home {
+    .secContainer {
+      .homeCard {
         bottom: -130px;
         width: 90%;
-        grid-template-columns: repeat(2,1fr);
-        .btn{
+        grid-template-columns: repeat(2, 1fr);
+        .btn {
           transform: translateY(15px);
         }
       }
@@ -115,13 +134,13 @@
   }
 }
 @media screen and (min-width: 556px) {
-  .home{
-    .secContainer{
-      .homeText{
-        .title{
+  .home {
+    .secContainer {
+      .homeText {
+        .title {
           font-size: 2.5rem;
         }
-        .subTitle{
+        .subTitle {
           font-size: 18px;
         }
       }
@@ -129,28 +148,28 @@
   }
 }
 @media screen and (min-width: 720px) {
-  .home{
-    .secContainer{
-      .homeCard{
-        grid-template-columns: repeat(4,1fr);
+  .home {
+    .secContainer {
+      .homeCard {
+        grid-template-columns: repeat(4, 1fr);
         bottom: -10%;
       }
     }
   }
 }
 @media screen and (min-width: 720px) {
-  .home{
-    .secContainer{
-      .homeText{
+  .home {
+    .secContainer {
+      .homeText {
         padding: 1rem 10rem;
 
-        .title{
+        .title {
           font-size: 3.4;
           margin: auto;
           line-height: 4rem;
         }
 
-        .subTitle{
+        .subTitle {
           width: 70%;
         }
       }

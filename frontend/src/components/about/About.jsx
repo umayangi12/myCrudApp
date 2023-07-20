@@ -3,14 +3,14 @@ import "./about.scss";
 import customer from "../../assets/img/customer.png";
 import mountain from "../../assets/img/mountains.png";
 import hiking from "../../assets/img/hiking.png";
-import video from "../../assets/video.mp4";
+import video from "../../assets/hiking.mp4";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
 const About = () => {
-    useEffect(() => {
-      Aos.init({ duration: 2000 });
-    }, []);
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
   return (
     <section className="about section">
       <div className="secContainer">
@@ -18,11 +18,11 @@ const About = () => {
         <div className="mainContent container grid">
           <div
             data-aos="fade-up"
-            data-aos-duration="2000"
+            data-aos-duration="2500"
             className="singleItem"
           >
-            <img src={mountain} alt="" />
-            <h3>100+ Mountains</h3>
+            <img src={hiking} alt="" />
+            <h3>1000+ Hikings</h3>
             <p>
               Research shows that a chance to break away from the normal rythms
               of daily life reduces stress and imporces health and well-being.
@@ -30,11 +30,11 @@ const About = () => {
           </div>
           <div
             data-aos="fade-up"
-            data-aos-duration="2500"
+            data-aos-duration="2000"
             className="singleItem"
           >
-            <img src={hiking} alt="" />
-            <h3>1000+ Hikings</h3>
+            <img src={mountain} alt="" />
+            <h3>100+ Mountains</h3>
             <p>
               Research shows that a chance to break away from the normal rythms
               of daily life reduces stress and imporces health and well-being.
@@ -60,10 +60,11 @@ const About = () => {
               data-aos-duration="2000"
               className="cardText"
             >
-              <h2>Wonderful house experience!</h2>
+              <h2>Mountains for the Mind: Wonderful hiking experience!</h2>
               <p>
-                The adventure subranking is based on an equally weighted average
-                of scores
+                The entire nature clothed in green, is enjoyed by us to our
+                heart’s content. Nature ! appears before us as a great teacher,
+                healer and consoler.
               </p>
             </div>
             <div
