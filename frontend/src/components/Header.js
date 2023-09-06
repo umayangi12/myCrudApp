@@ -4,6 +4,7 @@ import { TbGridDots } from "react-icons/tb";
 import { CgBee } from "react-icons/cg";
 import "./header.scss";
 
+
 const Header = () => {
   const [active, setActive] = useState("navBar");
 
@@ -44,12 +45,12 @@ const Header = () => {
         <div className={active}>
           <ul className="navLists flex">
             <li className="navItem">
-              <a href="#" className="navLink">
+              <a href="/" className="navLink">
                 Home
               </a>
             </li>
             <li className="navItem">
-              <a href="#" className="navLink">
+              <a href="/getAllStudents" className="navLink">
                 Products
               </a>
             </li>

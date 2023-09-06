@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import "./offer.scss";
-import "./offer.css";
 import { MdKingBed } from "react-icons/md";
 import { GiBathtub } from "react-icons/gi";
 import { AiOutlineWifi } from "react-icons/ai";
