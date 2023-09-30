@@ -1,12 +1,51 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { TbGridDots } from "react-icons/tb";
 import { CgBee } from "react-icons/cg";
 import "./header.scss";
+import jwt_decode from "jwt-decode";
 
 
 const Header = () => {
   const [active, setActive] = useState("navBar");
+  const [user, setUser] = useState({});
+
+  function handleCallbackResponse(response) {
+    console.log("JWT ID token" + response.credential);
+    var userObject = jwt_decode(response.credential);
+    console.log(userObject);
+    setUser(userObject);
+    document.getElementById("signInDiv").hidden = true; //when a user already signed in
+  }
+
+  function handleSignOut(event) {
+    setUser({}); // no one signed in
+    document.getElementById("signInDiv").hidden = false;
+  }
+
+  useEffect(() => {
+    //gloabl google
+    if (window.google && window.google.accounts) {
+      window.google.accounts.id.initialize({
+        client_id:
+          "943710538249-c5b86unf68085l2u7kb7dedfgcogi2b4.apps.googleusercontent.com",
+        callback: handleCallbackResponse,
+      });
+    }
+    if (window.google && window.google.accounts) {
+      window.google.accounts.id.renderButton(
+        document.getElementById("signInDiv"),
+        {
+          theme: "outline",
+          size: "large",
+        }
+      );
+    }
+    if (window.google && window.google.accounts) {
+      window.google.accounts.id.prompt();
+    }
+  }, []);
+
 
   //show navbar
   const showNavBar = () => {
@@ -72,6 +111,16 @@ const Header = () => {
                 <a href="#">Sign up</a>
               </button>
             </div>
+            <div id="signInDiv"></div>
+            {Object.keys(user).length !== 0 && (
+              <button onClick={(e) => handleSignOut(e)}>Sign Out</button>
+            )}
+            {user && (
+              <div>
+                <img src={user.picture}></img>
+                <h3>{user.name}</h3>
+              </div>
+            )}
           </ul>
           <div onClick={removeNavBar} className="closeNavBar">
             <AiFillCloseCircle className="icon" />

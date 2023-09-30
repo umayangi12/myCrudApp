@@ -89,7 +89,11 @@ const Popular = () => {
         <div className="mainContent grid">
           {data.map(({ id, imgSrc, destTitle, location, grade }) => {
             return (
-              <div data-aos="fade-up" data-aos-duration="2500" className="singleDestination">
+              <div
+                data-aos="fade-up"
+                data-aos-duration="2500"
+                className="singleDestination"
+              >
                 <div className="destImage">
                   <img src={imgSrc} alt="Image title" />
                   <div className="overlayInfo">
