@@ -4,6 +4,7 @@ import "./home.scss";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import video from "../../assets/bg.mp4";
+import Popular from "../popular/Popular";
 
 const Home = () => {
   useEffect(() => {
