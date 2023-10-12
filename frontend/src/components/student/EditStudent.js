@@ -54,6 +54,20 @@ export const EditStudent = () => {
   const onSubmit = (e) => {
     e.preventDefault();
 
+    if (!student.name || !student.age || !student.gender) {
+    toast.error("All fields are required!", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+    return;
+  }
+
     const data = {
       name: student.name,
       age: student.age,
@@ -63,14 +77,25 @@ export const EditStudent = () => {
     axios
       .put(`http://localhost:8070/student/updateStudent/${id}`, data)
       .then((res) => {
+        notifyStudentUpdate();
         console.log(res);
-         setTimeout(() => {
-           navigate("/getAllStudents"); // Navigate after 3 seconds
-         }, 3000);
+        setTimeout(() => {
+          navigate("/getAllStudents"); // Navigate after 3 seconds
+        }, 3000);
       })
       .catch((err) => {
-        alert("Error in update student ");
+        // alert("Error in update student ");
         console.log(err);
+         toast.error("Error in Adding the Student!", {
+           position: "top-right",
+           autoClose: 5000,
+           hideProgressBar: false,
+           closeOnClick: true,
+           pauseOnHover: true,
+           draggable: true,
+           progress: undefined,
+           theme: "colored",
+         });
       });
   };
 
@@ -113,11 +138,7 @@ export const EditStudent = () => {
           />
         </div>
 
-        <button
-          type="submit"
-          className="btn btn-primary"
-          onClick={notifyStudentUpdate}
-        >
+        <button type="submit" className="btn btn-primary" onClick={onSubmit}>
           Submit
         </button>
         <ToastContainer />

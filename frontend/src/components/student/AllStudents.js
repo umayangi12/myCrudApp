@@ -2,6 +2,8 @@ import "./students.css";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function AllStudents() {
   const [students, setStudents] = useState([]);
@@ -29,8 +31,29 @@ export default function AllStudents() {
         );
         console.log(response);
         if (response.status === 200) {
-          alert(response.data.status);
-          getAllStudents();
+          // alert(response.data.status);
+           toast.success("Student deleted successfully!", {
+             position: "top-right",
+             autoClose: 5000,
+             hideProgressBar: false,
+             closeOnClick: true,
+             pauseOnHover: true,
+             draggable: true,
+             progress: undefined,
+             theme: "colored",
+           });
+           getAllStudents();
+        } else {
+          toast.error("Failed to delete student!", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          });
         }
       } catch (error) {
         console.log(error.message);
@@ -90,6 +113,7 @@ export default function AllStudents() {
           <Link to={"/addStudent"}>
             <button className="btn btn-addStudent">Add Student</button>
           </Link>
+          <ToastContainer/>
         </div>
       </div>
     </div>

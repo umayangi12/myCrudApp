@@ -21,27 +21,52 @@ export const AddStudent = () => {
     });
   };
 
-  function submitData(e) {
-    e.preventDefault();
+function submitData(e) {
+  e.preventDefault();
 
-    const newStudent = {
-      name,
-      age,
-      gender,
-    };
-    console.log(newStudent);
-    axios
-      .post("http://localhost:8070/student/addStudent", newStudent)
-      .then(() => {
-        // alert("Student added successfully");
-        setName("");
-        setAge(0);
-        setGender("");
-      })
-      .catch((error) => {
-        alert(error);
-      });
+  // Check for empty fields
+  if (!name || !age || !gender) {
+    toast.error("All fields are required!", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+    return;
   }
+
+  const newStudent = {
+    name,
+    age,
+    gender,
+  };
+
+  axios
+    .post("http://localhost:8070/student/addStudent", newStudent)
+    .then(() => {
+      notifyStudentAdd(); // Success toast message
+      setName("");
+      setAge(0);
+      setGender("");
+    })
+    .catch((error) => {
+      console.error(error);
+      toast.error("Error in Adding the Student!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+    });
+}
 
   return (
     <div className="container">
@@ -85,11 +110,7 @@ export const AddStudent = () => {
           />
         </div>
 
-        <button
-          type="submit"
-          className="btn btn-primary"
-          onClick={notifyStudentAdd}
-        >
+        <button type="submit" className="btn btn-primary" onClick={submitData}>
           Submit
         </button>
         <ToastContainer />
